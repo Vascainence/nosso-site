@@ -1,80 +1,24 @@
-* {
-  margin-bottom: 40px;
-  color: #ff2e63;
-  font-size: 2.5rem;
+const button = document.getElementById('loveButton');
+
+button.addEventListener('click', () => {
+  alert('Eu te amo mais do que palavras conseguem explicar ❤️');
+});
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+
+  heart.innerHTML = '❤️';
+
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
 }
 
-.photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.card p {
-  padding: 20px;
-  text-align: center;
-}
-
-.message {
-  padding: 80px 20px;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-.message p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-footer {
-  padding: 30px;
-  text-align: center;
-  color: #666;
-}
-
-.heart {
-  position: fixed;
-  top: -10px;
-  color: #ff2e63;
-  animation: fall linear forwards;
-  z-index: 999;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .gallery h2,
-  .message h2 {
-    font-size: 2rem;
-  }
-}
+setInterval(createHeart, 300);
