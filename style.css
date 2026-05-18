@@ -1,83 +1,97 @@
 * {
-.gallery h2,
-.message h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #ff2e63;
-  font-size: 2.5rem;
+
+.caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  padding: 25px;
+  border-radius: 22px;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(10px);
 }
 
-.photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
+.caption h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.caption p {
+  color: #ddd;
+}
+
+.letter {
+  padding: 100px 8%;
+}
+
+.letter-box {
+  max-width: 900px;
   margin: auto;
+  padding: 60px;
+  border-radius: 35px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 60px rgba(255, 0, 120, .12);
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
+.letter-box span {
+  color: #ff7aa2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+.letter-box h2 {
+  font-size: 3rem;
+  margin: 20px 0;
+  font-family: 'Great Vibes', cursive;
+  font-weight: normal;
 }
 
-.card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.card p {
-  padding: 20px;
-  text-align: center;
-}
-
-.message {
-  padding: 80px 20px;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-.message p {
-  font-size: 1.2rem;
-  line-height: 1.8;
+.letter-box p {
+  color: #d7d7d7;
+  line-height: 2;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
 }
 
 footer {
-  padding: 30px;
+  padding: 40px;
   text-align: center;
-  color: #666;
+  color: #999;
 }
 
-.heart {
-  position: fixed;
-  top: -10px;
-  color: #ff2e63;
-  animation: fall linear forwards;
-  z-index: 999;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
+@keyframes fadeUp {
+  from {
     opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
+@media(max-width: 900px) {
+
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
 
-  .gallery h2,
-  .message h2 {
+  .title h2 {
     font-size: 2rem;
+  }
+
+  .photo-card.large {
+    grid-column: span 1;
+  }
+
+  .photo-card {
+    min-height: 400px;
+  }
+
+  .letter-box,
+  .love-card {
+    padding: 35px;
   }
 }
