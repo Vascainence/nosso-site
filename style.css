@@ -309,6 +309,120 @@ width:220px;
 height:280px;
 
 }
+/* ========================= */
+/* CÉU ESTRELADO */
+/* ========================= */
 
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+radial-gradient(circle,#ffffff 1px,transparent 1px),
+
+radial-gradient(circle,#c77dff 2px,transparent 2px),
+
+radial-gradient(circle,#ffffff88 1px,transparent 1px);
+
+background-size:
+
+120px 120px,
+
+220px 220px,
+
+180px 180px;
+
+animation:starsMove 60s linear infinite;
+
+opacity:.35;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+radial-gradient(circle at 20% 20%,
+
+rgba(199,125,255,.35),
+
+transparent 30%),
+
+radial-gradient(circle at 80% 40%,
+
+rgba(123,44,191,.35),
+
+transparent 30%),
+
+radial-gradient(circle at 50% 80%,
+
+rgba(255,255,255,.15),
+
+transparent 40%);
+
+filter:blur(80px);
+
+animation:aurora 15s ease infinite alternate;
+
+z-index:-1;
+
+}
+
+@keyframes starsMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-150px);
+
+}
+
+}
+
+@keyframes aurora{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.2);
+
+}
+
+}
 }
 ```
