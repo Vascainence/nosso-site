@@ -2,13 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 }
 
 body{
@@ -24,7 +20,7 @@ background:linear-gradient(
 
 background-size:400% 400%;
 
-animation:gradient 12s ease infinite;
+animation:gradient 15s ease infinite;
 
 color:white;
 
@@ -32,7 +28,11 @@ min-height:100vh;
 
 overflow-x:hidden;
 
+position:relative;
+
 }
+
+/* FUNDO ANIMADO */
 
 @keyframes gradient{
 
@@ -56,6 +56,122 @@ background-position:0% 50%;
 
 }
 
+/* CÉU ESTRELADO */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+radial-gradient(circle,#fff 1px,transparent 1px),
+
+radial-gradient(circle,#c77dff 2px,transparent 2px),
+
+radial-gradient(circle,#ffffff88 1px,transparent 1px);
+
+background-size:
+
+120px 120px,
+
+220px 220px,
+
+180px 180px;
+
+animation:starsMove 80s linear infinite;
+
+opacity:.35;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+radial-gradient(circle at 20% 20%,
+
+rgba(199,125,255,.35),
+
+transparent 30%),
+
+radial-gradient(circle at 80% 30%,
+
+rgba(123,44,191,.35),
+
+transparent 30%),
+
+radial-gradient(circle at 50% 80%,
+
+rgba(255,255,255,.12),
+
+transparent 40%);
+
+filter:blur(80px);
+
+animation:aurora 12s ease infinite alternate;
+
+z-index:-1;
+
+}
+
+@keyframes starsMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-200px);
+
+}
+
+}
+
+@keyframes aurora{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+/* HERO */
+
 .hero{
 
 text-align:center;
@@ -70,6 +186,8 @@ font-size:4rem;
 
 margin-bottom:20px;
 
+text-shadow:0 10px 30px rgba(0,0,0,.4);
+
 }
 
 .hero p{
@@ -78,7 +196,9 @@ max-width:700px;
 
 margin:auto;
 
-font-size:1.2rem;
+font-size:1.3rem;
+
+line-height:1.8;
 
 }
 
@@ -86,27 +206,129 @@ font-size:1.2rem;
 
 display:inline-block;
 
-margin-top:30px;
+margin-top:40px;
 
-padding:15px 30px;
+padding:18px 35px;
 
-background:#c77dff;
+background:
 
-color:white;
-
-text-decoration:none;
+linear-gradient(
+45deg,
+#7b2cbf,
+#c77dff
+);
 
 border-radius:40px;
 
-font-weight:bold;
+text-decoration:none;
 
-transition:0.4s;
+color:white;
+
+font-weight:600;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.3);
+
+transition:.4s;
 
 }
 
 .btn:hover{
 
-transform:scale(1.1);
+transform:
+
+scale(1.08)
+
+translateY(-5px);
+
+}
+
+/* CONTADOR */
+
+.contador{
+
+padding:80px 20px;
+
+text-align:center;
+
+}
+
+.contador h2{
+
+font-size:2.5rem;
+
+margin-bottom:40px;
+
+}
+
+#timer{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:25px;
+
+}
+
+.box{
+
+width:150px;
+
+padding:30px;
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:25px;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.3);
+
+transition:.4s;
+
+}
+
+.box:hover{
+
+transform:
+
+translateY(-10px)
+
+scale(1.05);
+
+}
+
+.box span{
+
+font-size:3rem;
+
+font-weight:700;
+
+display:block;
+
+}
+
+.box p{
+
+margin-top:10px;
+
+opacity:.9;
+
+}
+
+/* LOVE CARD */
+
+.love-section{
+
+padding:70px 20px;
 
 }
 
@@ -116,11 +338,41 @@ max-width:800px;
 
 margin:auto;
 
-padding:50px;
-
 text-align:center;
 
+padding:50px;
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:35px;
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.3);
+
 }
+
+.love-card h2{
+
+font-size:2.5rem;
+
+margin-bottom:25px;
+
+}
+
+.love-card p{
+
+font-size:1.2rem;
+
+line-height:2;
+
+}
+
+/* GALERIA POLAROID */
 
 .gallery{
 
@@ -132,7 +384,7 @@ justify-content:center;
 
 gap:50px;
 
-padding:80px 20px;
+padding:100px 20px;
 
 }
 
@@ -143,6 +395,8 @@ width:100%;
 text-align:center;
 
 margin-bottom:50px;
+
+font-size:2.5rem;
 
 }
 
@@ -160,9 +414,11 @@ position:relative;
 
 box-shadow:
 
-0 15px 35px rgba(0,0,0,0.35);
+0 15px 35px rgba(0,0,0,.35);
 
-transition:0.5s;
+transition:.5s;
+
+cursor:pointer;
 
 }
 
@@ -196,19 +452,19 @@ font-weight:600;
 
 }
 
-.card:nth-child(2){
+.card:nth-of-type(1){
 
 transform:rotate(-8deg);
 
 }
 
-.card:nth-child(3){
+.card:nth-of-type(2){
 
 transform:rotate(7deg);
 
 }
 
-.card:nth-child(4){
+.card:nth-of-type(3){
 
 transform:rotate(-5deg);
 
@@ -240,7 +496,7 @@ height:25px;
 
 background:
 
-rgba(255,255,255,0.45);
+rgba(255,255,255,.45);
 
 top:-12px;
 
@@ -253,6 +509,8 @@ translateX(-50%)
 rotate(-5deg);
 
 }
+
+/* CARTA */
 
 .letter{
 
@@ -270,31 +528,97 @@ max-width:700px;
 
 padding:50px;
 
+text-align:center;
+
 background:
 
-rgba(255,255,255,0.08);
+rgba(255,255,255,.08);
 
 backdrop-filter:blur(12px);
 
-border-radius:30px;
+border-radius:35px;
 
-text-align:center;
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.3);
 
 }
+
+.letter-box span{
+
+font-size:1.2rem;
+
+opacity:.8;
+
+}
+
+.letter-box h2{
+
+margin:20px 0;
+
+font-size:2.5rem;
+
+}
+
+.letter-box p{
+
+font-size:1.2rem;
+
+line-height:2;
+
+}
+
+/* FOOTER */
 
 footer{
 
-padding:40px;
+padding:50px;
 
 text-align:center;
 
+opacity:.8;
+
 }
+
+/* RESPONSIVO */
 
 @media(max-width:768px){
 
 .hero h1{
 
 font-size:2.5rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+.contador h2{
+
+font-size:1.8rem;
+
+}
+
+.box{
+
+width:120px;
+
+padding:20px;
+
+}
+
+.box span{
+
+font-size:2rem;
+
+}
+
+.gallery{
+
+gap:35px;
 
 }
 
@@ -309,120 +633,18 @@ width:220px;
 height:280px;
 
 }
-/* ========================= */
-/* CÉU ESTRELADO */
-/* ========================= */
 
-body::before{
+.love-card{
 
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:
-
-radial-gradient(circle,#ffffff 1px,transparent 1px),
-
-radial-gradient(circle,#c77dff 2px,transparent 2px),
-
-radial-gradient(circle,#ffffff88 1px,transparent 1px);
-
-background-size:
-
-120px 120px,
-
-220px 220px,
-
-180px 180px;
-
-animation:starsMove 60s linear infinite;
-
-opacity:.35;
-
-z-index:-2;
+padding:35px;
 
 }
 
-body::after{
+.letter-box{
 
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:
-
-radial-gradient(circle at 20% 20%,
-
-rgba(199,125,255,.35),
-
-transparent 30%),
-
-radial-gradient(circle at 80% 40%,
-
-rgba(123,44,191,.35),
-
-transparent 30%),
-
-radial-gradient(circle at 50% 80%,
-
-rgba(255,255,255,.15),
-
-transparent 40%);
-
-filter:blur(80px);
-
-animation:aurora 15s ease infinite alternate;
-
-z-index:-1;
+padding:35px;
 
 }
 
-@keyframes starsMove{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-100%{
-
-transform:translateY(-150px);
-
-}
-
-}
-
-@keyframes aurora{
-
-0%{
-
-transform:scale(1);
-
-}
-
-100%{
-
-transform:scale(1.2);
-
-}
-
-}
 }
 ```
