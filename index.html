@@ -4,20 +4,44 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nosso Site 💜</title>
+<title>Nós Dois 💜</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<!-- HERO -->
+
 <section class="hero">
-  <section class="contador">
+
+  <h1>💜 Nós Dois 💜</h1>
+
+  <p>
+
+    Fiz esse pequeno espaço para guardar nossas memórias,
+
+    nossos momentos e tudo aquilo que faz eu te amar cada vez mais.
+
+  </p>
+
+  <a href="#memories" class="btn">
+
+    Ver nossas memórias 💌
+
+  </a>
+
+</section>
+
+
+<!-- CONTADOR -->
+
+<section class="contador">
 
 <h2>
 
@@ -63,45 +87,53 @@
 
 </section>
 
-  <h1>💜 Nós Dois 💜</h1>
 
-  <p>
-    Fiz esse pequeno espaço para guardar nossas memórias,
-    nossos momentos e tudo aquilo que faz eu te amar cada vez mais.
-  </p>
-
-  <a href="#memories" class="btn">
-    Ver nossas memórias 💌
-  </a>
-
-</section>
-
+<!-- TEXTO -->
 
 <section class="love-section">
 
-  <div class="love-card">
+<div class="love-card">
 
-    <h2>Desde que você apareceu ✨</h2>
+<h2>
 
-    <p>
-      Minha vida ficou mais leve, mais feliz e muito mais bonita.
-      Cada sorriso seu virou meu lugar favorito.
-    </p>
+Desde que você apareceu ✨
 
-  </div>
+</h2>
+
+<p>
+
+Minha vida ficou mais leve,
+
+mais feliz e muito mais bonita.
+
+Cada sorriso seu virou meu lugar favorito.
+
+</p>
+
+</div>
 
 </section>
 
 
+<!-- GALERIA -->
+
 <section id="memories" class="gallery">
 
-<h2>Memórias que quero guardar para sempre 💖</h2>
+<h2>
+
+Memórias que quero guardar para sempre 💖
+
+</h2>
 
 <div class="card">
 
 <img src="foto1.jpg" alt="Foto 1">
 
-<p>Nosso começo ❤️</p>
+<p>
+
+Nosso começo ❤️
+
+</p>
 
 </div>
 
@@ -109,7 +141,11 @@
 
 <img src="foto2.jpg" alt="Foto 2">
 
-<p>Seu sorriso ✨</p>
+<p>
+
+Seu sorriso ✨
+
+</p>
 
 </div>
 
@@ -117,20 +153,34 @@
 
 <img src="foto3.jpg" alt="Foto 3">
 
-<p>Pra sempre nós 💕</p>
+<p>
+
+Pra sempre nós 💕
+
+</p>
 
 </div>
 
 </section>
 
 
+<!-- CARTA -->
+
 <section class="letter">
 
 <div class="letter-box">
 
-<span>Uma carta pra você 💌</span>
+<span>
 
-<h2>Obrigado por existir</h2>
+Uma carta pra você 💌
+
+</span>
+
+<h2>
+
+Obrigado por existir
+
+</h2>
 
 <p>
 
@@ -156,6 +206,7 @@ vivendo momentos e colecionando sorrisos contigo.
 
 </section>
 
+
 <footer>
 
 <p>
@@ -165,6 +216,57 @@ Feito com amor por Bruno ❤️
 </p>
 
 </footer>
+
+
+<script>
+
+const dataNamoro = new Date("2025-04-03 00:00:00");
+
+function atualizar(){
+
+const agora = new Date();
+
+const diferenca = agora - dataNamoro;
+
+const dias = Math.floor(
+
+diferenca/(1000*60*60*24)
+
+);
+
+const horas = Math.floor(
+
+(diferenca/(1000*60*60))%24
+
+);
+
+const minutos = Math.floor(
+
+(diferenca/(1000*60))%60
+
+);
+
+const segundos = Math.floor(
+
+(diferenca/1000)%60
+
+);
+
+document.getElementById("dias").innerText=dias;
+
+document.getElementById("horas").innerText=horas;
+
+document.getElementById("minutos").innerText=minutos;
+
+document.getElementById("segundos").innerText=segundos;
+
+}
+
+setInterval(atualizar,1000);
+
+atualizar();
+
+</script>
 
 </body>
 
