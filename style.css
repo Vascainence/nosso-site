@@ -1,88 +1,314 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:linear-gradient(
+135deg,
+#14001f,
+#2a044a,
+#5f189f
+);
+
+background-size:400% 400%;
+
+animation:gradient 12s ease infinite;
+
+color:white;
+
+min-height:100vh;
+
+overflow-x:hidden;
+
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #070707;
-  color: white;
-  overflow-x: hidden;
+@keyframes gradient{
+
+0%{
+
+background-position:0% 50%;
+
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 0, 102, 0.15), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 100, 150, 0.12), transparent 30%);
-  z-index: -2;
+50%{
+
+background-position:100% 50%;
+
 }
 
-.bg {
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
-    url('foto1.jpg') center/cover no-repeat;
-  filter: blur(12px) scale(1.1);
-  opacity: .25;
-  z-index: -3;
+100%{
+
+background-position:0% 50%;
+
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 8%;
-  position: relative;
 }
 
-.hero-content {
-  max-width: 700px;
-  text-align: center;
-  animation: fadeUp 1s ease;
+.hero{
+
+text-align:center;
+
+padding:100px 20px;
+
 }
 
-.mini-title {
-  color: #ff7aa2;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-size: .9rem;
+.hero h1{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
 }
 
-.hero h1 {
-  font-size: 5rem;
-  line-height: 1;
-  margin: 20px 0;
-  font-family: 'Great Vibes', cursive;
-  font-weight: normal;
-  text-shadow: 0 0 30px rgba(255, 105, 180, .3);
+.hero p{
+
+max-width:700px;
+
+margin:auto;
+
+font-size:1.2rem;
+
 }
 
-.hero p {
-  font-size: 1.15rem;
-  color: #d1d1d1;
-  line-height: 1.8;
-  margin-bottom: 40px;
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 30px;
+
+background:#c77dff;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:40px;
+
+font-weight:bold;
+
+transition:0.4s;
+
 }
 
-.btn {
-  display: inline-block;
-  padding: 18px 34px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ff4d88, #ff7aa2);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: .4s;
-  box-shadow: 0 10px 40px rgba(255, 77, 136, .4);
+.btn:hover{
+
+transform:scale(1.1);
+
 }
+
+.love-card{
+
+max-width:800px;
+
+margin:auto;
+
+padding:50px;
+
+text-align:center;
+
 }
+
+.gallery{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:50px;
+
+padding:80px 20px;
+
+}
+
+.gallery h2{
+
+width:100%;
+
+text-align:center;
+
+margin-bottom:50px;
+
+}
+
+.card{
+
+width:260px;
+
+background:white;
+
+padding:15px 15px 60px;
+
+border-radius:8px;
+
+position:relative;
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,0.35);
+
+transition:0.5s;
+
+}
+
+.card img{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+border-radius:3px;
+
+}
+
+.card p{
+
+position:absolute;
+
+bottom:18px;
+
+left:0;
+
+width:100%;
+
+text-align:center;
+
+color:#555;
+
+font-weight:600;
+
+}
+
+.card:nth-child(2){
+
+transform:rotate(-8deg);
+
+}
+
+.card:nth-child(3){
+
+transform:rotate(7deg);
+
+}
+
+.card:nth-child(4){
+
+transform:rotate(-5deg);
+
+}
+
+.card:hover{
+
+transform:
+
+rotate(0deg)
+
+scale(1.1)
+
+translateY(-15px);
+
+z-index:10;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+width:90px;
+
+height:25px;
+
+background:
+
+rgba(255,255,255,0.45);
+
+top:-12px;
+
+left:50%;
+
+transform:
+
+translateX(-50%)
+
+rotate(-5deg);
+
+}
+
+.letter{
+
+padding:80px 20px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.letter-box{
+
+max-width:700px;
+
+padding:50px;
+
+background:
+
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:30px;
+
+text-align:center;
+
+}
+
+footer{
+
+padding:40px;
+
+text-align:center;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.5rem;
+
+}
+
+.card{
+
+width:220px;
+
+}
+
+.card img{
+
+height:280px;
+
+}
+
+}
+```
