@@ -12,26 +12,22 @@ html{
 
 body{
 
-  font-family:'Poppins',sans-serif;
+background:
 
-  background:linear-gradient(
-    135deg,
-    #14001f,
-    #2a044a,
-    #5f189f
-  );
+linear-gradient(
+135deg,
+#14001f,
+#2a044a,
+#5f189f
+);
 
-  background-size:400% 400%;
+color:white;
 
-  animation:gradient 15s ease infinite;
+min-height:100vh;
 
-  color:white;
+overflow-x:hidden;
 
-  min-height:100vh;
-
-  overflow-x:hidden;
-
-  position:relative;
+position:relative;
 
 }
 
@@ -93,7 +89,6 @@ background-size:
 
 180px 180px;
 
-animation:starsMove 80s linear infinite;
 
 opacity:.35;
 
@@ -137,7 +132,7 @@ transparent 40%);
 
 filter:blur(80px);
 
-animation:aurora 12s ease infinite alternate;
+
 
 z-index:-1;
 
