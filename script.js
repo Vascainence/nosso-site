@@ -1,85 +1,240 @@
-// ======================
-// CONTADOR ROMÂNTICO
-// Desde 03/04/2026
-// ======================
+// ==============================
+// CONTADOR
+// Data: 03/04/2026
+// ==============================
 
-// Ano, mês (abril = 3), dia
-const dataNamoro = new Date(2026, 3, 3, 0, 0, 0);
+const dataNamoro = new Date(2025, 3, 3, 0, 0, 0);
 
-function atualizarContador() {
+function atualizarContador(){
 
     const agora = new Date();
 
-    let diferenca = agora - dataNamoro;
+    const diferenca = agora - dataNamoro;
 
     // Se a data ainda não chegou
-    if (diferenca < 0) {
 
-        document.getElementById("dias").innerText = "0";
-        document.getElementById("horas").innerText = "0";
-        document.getElementById("minutos").innerText = "0";
-        document.getElementById("segundos").innerText = "0";
+    if(diferenca < 0){
+
+        dias.innerText = "0";
+        horas.innerText = "00";
+        minutos.innerText = "00";
+        segundos.innerText = "00";
 
         return;
 
     }
 
-    const dias = Math.floor(
-        diferenca / (1000 * 60 * 60 * 24)
+    const d = Math.floor(
+        diferenca /
+        (1000 * 60 * 60 * 24)
     );
 
-    const horas = Math.floor(
-        (diferenca / (1000 * 60 * 60)) % 24
+    const h = Math.floor(
+        (diferenca /
+        (1000 * 60 * 60))
+        % 24
     );
 
-    const minutos = Math.floor(
-        (diferenca / (1000 * 60)) % 60
+    const m = Math.floor(
+        (diferenca /
+        (1000 * 60))
+        % 60
     );
 
-    const segundos = Math.floor(
-        (diferenca / 1000) % 60
+    const s = Math.floor(
+        (diferenca / 1000)
+        % 60
     );
 
-    document.getElementById("dias").innerText = dias;
+    document.getElementById("dias")
+    .innerText = d;
 
-    document.getElementById("horas").innerText =
-        String(horas).padStart(2, "0");
+    document.getElementById("horas")
+    .innerText = String(h)
+    .padStart(2,"0");
 
-    document.getElementById("minutos").innerText =
-        String(minutos).padStart(2, "0");
+    document.getElementById("minutos")
+    .innerText = String(m)
+    .padStart(2,"0");
 
-    document.getElementById("segundos").innerText =
-        String(segundos).padStart(2, "0");
+    document.getElementById("segundos")
+    .innerText = String(s)
+    .padStart(2,"0");
 
 }
 
-// Atualiza imediatamente
+setInterval(
+    atualizarContador,
+    1000
+);
+
 atualizarContador();
 
-// Atualiza a cada segundo
-setInterval(atualizarContador, 1000);
+
+
+// ==============================
+// CÉU ESTRELADO COM CANVAS
+// ==============================
+
+const canvas = document.getElementById("stars");
+
+const ctx = canvas.getContext("2d");
+
+let estrelas = [];
+
+function redimensionar(){
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+}
+
+window.addEventListener(
+    "resize",
+    redimensionar
+);
+
+redimensionar();
 
 
 
-// ======================
-// EFEITO NAS POLAROIDS
-// ======================
+// CRIA ESTRELAS
 
-const cards = document.querySelectorAll(".card");
+for(let i=0;i<150;i++){
 
-cards.forEach(card => {
+    estrelas.push({
 
-    card.addEventListener("mouseenter", () => {
+        x:
+        Math.random()
+        * canvas.width,
 
-        card.style.boxShadow =
-            "0 25px 50px rgba(0,0,0,.45)";
+        y:
+        Math.random()
+        * canvas.height,
+
+        r:
+        Math.random()*2,
+
+        alpha:
+        Math.random(),
+
+        speed:
+        Math.random()*0.015
 
     });
 
-    card.addEventListener("mouseleave", () => {
+}
 
-        card.style.boxShadow =
-            "0 15px 35px rgba(0,0,0,.35)";
+
+
+function desenhar(){
+
+    ctx.clearRect(
+
+        0,
+
+        0,
+
+        canvas.width,
+
+        canvas.height
+
+    );
+
+    estrelas.forEach(star=>{
+
+        star.alpha += star.speed;
+
+        if(
+
+        star.alpha > 1 ||
+
+        star.alpha < .2
+
+        ){
+
+            star.speed *= -1;
+
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+
+            star.x,
+
+            star.y,
+
+            star.r,
+
+            0,
+
+            Math.PI*2
+
+        );
+
+        ctx.fillStyle =
+
+        `rgba(
+
+        255,
+
+        255,
+
+        255,
+
+        ${star.alpha}
+
+        )`;
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(
+
+        desenhar
+
+    );
+
+}
+
+desenhar();
+
+
+
+// ==============================
+// EFEITO NAS FOTOS
+// ==============================
+
+const pins =
+
+document.querySelectorAll(".pin");
+
+pins.forEach(pin=>{
+
+    pin.addEventListener(
+
+        "mouseenter",
+
+        ()=>{
+
+        pin.style.transform =
+
+        "translateY(-10px) scale(1.02)";
+
+    });
+
+    pin.addEventListener(
+
+        "mouseleave",
+
+        ()=>{
+
+        pin.style.transform =
+
+        "translateY(0) scale(1)";
 
     });
 
@@ -87,45 +242,9 @@ cards.forEach(card => {
 
 
 
-// ======================
-// BRILHO NO BOTÃO
-// ======================
-
-const btn = document.querySelector(".btn");
-
-if(btn){
-
-    setInterval(() => {
-
-        btn.animate([
-
-            {
-                transform:"scale(1)"
-            },
-
-            {
-                transform:"scale(1.04)"
-            },
-
-            {
-                transform:"scale(1)"
-            }
-
-        ],{
-
-            duration:1500
-
-        });
-
-    },2500);
-
-}
-
-
-
-// ======================
+// ==============================
 // MENSAGEM NO CONSOLE 💜
-// ======================
+// ==============================
 
 console.log(
 
