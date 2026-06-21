@@ -1,80 +1,75 @@
-// ==============================
-// CONTADOR
-// Data: 03/04/2026
-// ==============================
+// ===============================
+// CONTADOR ROMÂNTICO
+// Desde 03/04/2026
+// ===============================
 
-const dataNamoro = new Date(2025, 3, 3, 0, 0, 0);
+const dataNamoro = new Date(2026, 3, 3, 0, 0, 0);
 
-function atualizarContador(){
+const diasEl = document.getElementById("dias");
+const horasEl = document.getElementById("horas");
+const minutosEl = document.getElementById("minutos");
+const segundosEl = document.getElementById("segundos");
+
+function atualizarContador() {
 
     const agora = new Date();
 
-    const diferenca = agora - dataNamoro;
+    let diferenca = agora - dataNamoro;
 
-    // Se a data ainda não chegou
+    // Caso a data ainda não tenha chegado
 
-    if(diferenca < 0){
+    if (diferenca < 0) {
 
-        dias.innerText = "0";
-        horas.innerText = "00";
-        minutos.innerText = "00";
-        segundos.innerText = "00";
+        diasEl.innerText = "0";
+        horasEl.innerText = "00";
+        minutosEl.innerText = "00";
+        segundosEl.innerText = "00";
 
         return;
 
     }
 
-    const d = Math.floor(
-        diferenca /
-        (1000 * 60 * 60 * 24)
+    const dias = Math.floor(
+        diferenca / (1000 * 60 * 60 * 24)
     );
 
-    const h = Math.floor(
-        (diferenca /
-        (1000 * 60 * 60))
-        % 24
+    const horas = Math.floor(
+        (diferenca / (1000 * 60 * 60)) % 24
     );
 
-    const m = Math.floor(
-        (diferenca /
-        (1000 * 60))
-        % 60
+    const minutos = Math.floor(
+        (diferenca / (1000 * 60)) % 60
     );
 
-    const s = Math.floor(
-        (diferenca / 1000)
-        % 60
+    const segundos = Math.floor(
+        (diferenca / 1000) % 60
     );
 
-    document.getElementById("dias")
-    .innerText = d;
+    diasEl.innerText = dias;
 
-    document.getElementById("horas")
-    .innerText = String(h)
-    .padStart(2,"0");
+    horasEl.innerText =
+        String(horas).padStart(2, "0");
 
-    document.getElementById("minutos")
-    .innerText = String(m)
-    .padStart(2,"0");
+    minutosEl.innerText =
+        String(minutos).padStart(2, "0");
 
-    document.getElementById("segundos")
-    .innerText = String(s)
-    .padStart(2,"0");
+    segundosEl.innerText =
+        String(segundos).padStart(2, "0");
 
 }
+
+atualizarContador();
 
 setInterval(
     atualizarContador,
     1000
 );
 
-atualizarContador();
 
 
-
-// ==============================
+// ===============================
 // CÉU ESTRELADO COM CANVAS
-// ==============================
+// ===============================
 
 const canvas = document.getElementById("stars");
 
@@ -82,7 +77,7 @@ const ctx = canvas.getContext("2d");
 
 let estrelas = [];
 
-function redimensionar(){
+function resizeCanvas() {
 
     canvas.width = window.innerWidth;
 
@@ -92,43 +87,66 @@ function redimensionar(){
 
 window.addEventListener(
     "resize",
-    redimensionar
+    resizeCanvas
 );
 
-redimensionar();
+resizeCanvas();
 
+function criarEstrelas() {
 
+    estrelas = [];
 
-// CRIA ESTRELAS
+    let quantidade;
 
-for(let i=0;i<150;i++){
+    // Menos estrelas no celular
 
-    estrelas.push({
+    if(window.innerWidth < 768){
 
-        x:
-        Math.random()
-        * canvas.width,
+        quantidade = 70;
 
-        y:
-        Math.random()
-        * canvas.height,
+    }else{
 
-        r:
-        Math.random()*2,
+        quantidade = 150;
 
-        alpha:
-        Math.random(),
+    }
 
-        speed:
-        Math.random()*0.015
+    for(let i=0;i<quantidade;i++){
 
-    });
+        estrelas.push({
+
+            x:
+            Math.random()
+            * canvas.width,
+
+            y:
+            Math.random()
+            * canvas.height,
+
+            raio:
+            Math.random()*2,
+
+            alpha:
+            Math.random(),
+
+            velocidade:
+            Math.random()*0.01
+
+        });
+
+    }
 
 }
 
+criarEstrelas();
+
+window.addEventListener(
+    "resize",
+    criarEstrelas
+);
 
 
-function desenhar(){
+
+function animarEstrelas(){
 
     ctx.clearRect(
 
@@ -142,19 +160,19 @@ function desenhar(){
 
     );
 
-    estrelas.forEach(star=>{
+    estrelas.forEach(estrela=>{
 
-        star.alpha += star.speed;
+        estrela.alpha += estrela.velocidade;
 
         if(
 
-        star.alpha > 1 ||
+            estrela.alpha >= 1 ||
 
-        star.alpha < .2
+            estrela.alpha <= 0.2
 
         ){
 
-            star.speed *= -1;
+            estrela.velocidade *= -1;
 
         }
 
@@ -162,11 +180,11 @@ function desenhar(){
 
         ctx.arc(
 
-            star.x,
+            estrela.x,
 
-            star.y,
+            estrela.y,
 
-            star.r,
+            estrela.raio,
 
             0,
 
@@ -184,7 +202,7 @@ function desenhar(){
 
         255,
 
-        ${star.alpha}
+        ${estrela.alpha}
 
         )`;
 
@@ -194,62 +212,144 @@ function desenhar(){
 
     requestAnimationFrame(
 
-        desenhar
+        animarEstrelas
 
     );
 
 }
 
-desenhar();
+animarEstrelas();
 
 
 
-// ==============================
-// EFEITO NAS FOTOS
-// ==============================
 
-const pins =
+// ===============================
+// ENVELOPE ABRINDO
+// ===============================
 
-document.querySelectorAll(".pin");
+const envelope =
 
-pins.forEach(pin=>{
+document.getElementById("envelope");
 
-    pin.addEventListener(
+if(envelope){
+
+    envelope.addEventListener(
+
+        "click",
+
+        ()=>{
+
+            envelope.classList.toggle(
+
+                "aberto"
+
+            );
+
+        }
+
+    );
+
+}
+
+
+
+
+// ===============================
+// ANIMAÇÃO NAS FOTOS
+// ===============================
+
+const fotos =
+
+document.querySelectorAll(".foto");
+
+fotos.forEach(foto=>{
+
+    foto.addEventListener(
 
         "mouseenter",
 
         ()=>{
 
-        pin.style.transform =
+            foto.style.transform =
 
-        "translateY(-10px) scale(1.02)";
+            "translateY(-10px) scale(1.03)";
 
-    });
+        }
 
-    pin.addEventListener(
+    );
+
+    foto.addEventListener(
 
         "mouseleave",
 
         ()=>{
 
-        pin.style.transform =
+            foto.style.transform =
 
-        "translateY(0) scale(1)";
+            "translateY(0) scale(1)";
 
-    });
+        }
+
+    );
 
 });
 
 
 
-// ==============================
-// MENSAGEM NO CONSOLE 💜
-// ==============================
+
+// ===============================
+// ANIMAÇÃO DO HERO
+// ===============================
+
+const titulo =
+
+document.querySelector(".hero h1");
+
+if(titulo){
+
+    setInterval(()=>{
+
+        titulo.animate([
+
+            {
+
+                transform:"scale(1)"
+
+            },
+
+            {
+
+                transform:"scale(1.03)"
+
+            },
+
+            {
+
+                transform:"scale(1)"
+
+            }
+
+        ],{
+
+            duration:2500
+
+        });
+
+    },3500);
+
+}
+
+
+
+
+// ===============================
+// MENSAGEM NO CONSOLE
+// ===============================
 
 console.log(
 
 "%c💜 Site criado com amor por Bruno 💜",
 
-"font-size:20px;color:#c77dff;font-weight:bold;"
+"font-size:22px;color:#c77dff;font-weight:bold;"
 
 );
