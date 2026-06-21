@@ -7,7 +7,9 @@
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
@@ -17,26 +19,23 @@ body{
     background:
 
     linear-gradient(
-    135deg,
-    #14001f,
-    #2a044a,
+    180deg,
+    #120018,
+    #220033,
+    #3b0a63,
     #5f189f
     );
 
     color:white;
 
-    min-height:100vh;
-
     overflow-x:hidden;
-
-    position:relative;
 
 }
 
 
-/* ===================== */
+/* ==================== */
 /* CÉU ESTRELADO */
-/* ===================== */
+/* ==================== */
 
 #stars{
 
@@ -55,9 +54,10 @@ body{
 }
 
 
-/* ===================== */
+
+/* ==================== */
 /* HERO */
-/* ===================== */
+/* ==================== */
 
 .hero{
 
@@ -83,19 +83,23 @@ body{
 
 .hero h1{
 
-    font-size:4rem;
+    font-size:5rem;
 
-    margin-bottom:25px;
+    font-weight:700;
+
+    margin-bottom:30px;
 
 }
 
 .hero p{
 
-    font-size:1.3rem;
+    font-size:1.5rem;
+
+    opacity:.9;
 
     line-height:1.8;
 
-    margin-bottom:40px;
+    margin-bottom:50px;
 
 }
 
@@ -108,20 +112,16 @@ body{
     background:
 
     linear-gradient(
-
     45deg,
-
     #7b2cbf,
-
     #c77dff
-
     );
 
-    border-radius:40px;
+    color:white;
 
     text-decoration:none;
 
-    color:white;
+    border-radius:40px;
 
     font-weight:600;
 
@@ -133,198 +133,189 @@ body{
 
     transform:
 
-    scale(1.05)
-
-    translateY(-5px);
-
-}
-
-
-/* ===================== */
-/* CONTADOR */
-/* ===================== */
-
-.contador{
-
-    padding:90px 20px;
-
-    text-align:center;
-
-}
-
-.contador h2{
-
-    font-size:2.5rem;
-
-    margin-bottom:50px;
-
-}
-
-#timer{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:25px;
-
-}
-
-.box{
-
-    width:160px;
-
-    padding:30px;
-
-    background:
-
-    rgba(255,255,255,.12);
-
-    border-radius:25px;
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,.25);
-
-    transition:.3s;
-
-}
-
-.box:hover{
-
-    transform:
-
-    translateY(-10px)
+    translateY(-5px)
 
     scale(1.05);
 
 }
 
-.box span{
 
-    display:block;
 
-    font-size:3rem;
+/* ==================== */
+/* CONTADOR */
+/* ==================== */
+
+.contador{
+
+    padding:120px 20px;
+
+    text-align:center;
+
+}
+
+.contador h3{
+
+    font-size:2rem;
+
+    opacity:.9;
+
+}
+
+#dias{
+
+    font-size:8rem;
 
     font-weight:700;
 
-}
+    margin:20px 0;
 
-.box p{
-
-    margin-top:10px;
-
-    font-size:1rem;
+    color:#e0aaff;
 
 }
 
+.tempo{
 
-/* ===================== */
-/* LOVE CARD */
-/* ===================== */
-
-.love-section{
-
-    padding:80px 20px;
+    font-size:1.8rem;
 
 }
 
-.love-card{
 
-    max-width:850px;
+
+/* ==================== */
+/* TIMELINE */
+/* ==================== */
+
+.timeline{
+
+    padding:120px 20px;
+
+}
+
+.timeline h2{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:70px;
+
+}
+
+.linha{
+
+    max-width:900px;
 
     margin:auto;
 
-    padding:50px;
+    position:relative;
 
-    text-align:center;
+}
+
+.linha::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    width:4px;
+
+    height:100%;
+
+    background:#c77dff;
+
+    transform:translateX(-50%);
+
+}
+
+.momento{
+
+    width:45%;
+
+    padding:30px;
+
+    margin-bottom:60px;
 
     background:
 
-    rgba(255,255,255,.12);
+    rgba(255,255,255,.08);
 
-    border-radius:35px;
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.25);
+    border-radius:25px;
 
 }
 
-.love-card h2{
+.momento:nth-child(odd){
 
-    font-size:2.5rem;
-
-    margin-bottom:25px;
+    margin-right:auto;
 
 }
 
-.love-card p{
+.momento:nth-child(even){
 
-    font-size:1.2rem;
+    margin-left:auto;
 
-    line-height:2;
+}
+
+.momento h3{
+
+    margin-bottom:15px;
 
 }
 
 
-/* ===================== */
-/* GALERIA PINTEREST */
-/* ===================== */
 
-.gallery{
+/* ==================== */
+/* ÁLBUM */
+/* ==================== */
 
-    padding:100px 20px;
+.album{
+
+    padding:120px 20px;
 
 }
 
-.gallery h2{
+.album h2{
 
     text-align:center;
 
-    font-size:2.5rem;
+    font-size:3rem;
 
-    margin-bottom:50px;
+    margin-bottom:60px;
 
 }
 
-.masonry{
-
-    column-count:3;
-
-    column-gap:25px;
+.grid{
 
     max-width:1200px;
 
     margin:auto;
 
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
 }
 
-.pin{
+.foto{
 
-    break-inside:avoid;
-
-    margin-bottom:25px;
-
-    background:
-
-    rgba(255,255,255,.12);
-
-    border-radius:25px;
+    position:relative;
 
     overflow:hidden;
 
-    box-shadow:
+    border-radius:25px;
 
-    0 15px 35px rgba(0,0,0,.25);
+    cursor:pointer;
 
-    transition:.3s;
+    transition:.4s;
 
 }
 
-.pin img{
+.foto img{
 
     width:100%;
 
@@ -332,89 +323,181 @@ body{
 
 }
 
-.pin p{
+.texto{
 
-    padding:18px;
+    position:absolute;
+
+    bottom:-100%;
+
+    width:100%;
+
+    padding:25px;
+
+    background:
+
+    rgba(0,0,0,.7);
 
     text-align:center;
 
-    font-weight:600;
+    transition:.4s;
 
 }
 
-.pin:hover{
+.foto:hover .texto{
+
+    bottom:0;
+
+}
+
+.foto:hover{
 
     transform:
 
     translateY(-10px)
 
-    scale(1.02);
+    scale(1.03);
 
 }
 
 
-/* ===================== */
+
+/* ==================== */
 /* CARTA */
-/* ===================== */
+/* ==================== */
 
-.letter{
+.carta-section{
 
-    padding:100px 20px;
+    padding:120px 20px;
+
+    text-align:center;
 
 }
 
-.letter-box{
+.carta-section h2{
 
-    max-width:700px;
+    font-size:3rem;
+
+    margin-bottom:50px;
+
+}
+
+.envelope{
+
+    width:320px;
+
+    height:220px;
 
     margin:auto;
 
-    padding:55px;
+    position:relative;
+
+    cursor:pointer;
+
+}
+
+.tampa{
+
+    position:absolute;
+
+    width:100%;
+
+    height:120px;
+
+    background:#7b2cbf;
+
+    clip-path:
+
+    polygon(
+
+    0 0,
+
+    50% 100%,
+
+    100% 0
+
+    );
+
+    top:0;
+
+    left:0;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:3;
+
+}
+
+.carta{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
 
     background:
 
     rgba(255,255,255,.12);
 
-    border-radius:35px;
+    border-radius:15px;
 
-    text-align:center;
+    padding:25px;
 
-    box-shadow:
+    transform:
 
-    0 15px 35px rgba(0,0,0,.25);
+    translateY(80px);
+
+    opacity:0;
+
+    transition:1s;
 
 }
 
-.letter-box span{
+.envelope.aberto .tampa{
+
+    transform:
+
+    rotateX(180deg);
+
+}
+
+.envelope.aberto .carta{
+
+    transform:
+
+    translateY(-50px);
+
+    opacity:1;
+
+}
+
+.carta p{
+
+    margin-top:15px;
+
+    line-height:1.8;
+
+}
+
+.abrir{
+
+    margin-top:30px;
 
     opacity:.8;
 
 }
 
-.letter-box h2{
-
-    font-size:2.5rem;
-
-    margin:20px 0;
-
-}
-
-.letter-box p{
-
-    font-size:1.2rem;
-
-    line-height:2;
-
-}
 
 
-/* ===================== */
+/* ==================== */
 /* FOOTER */
-/* ===================== */
+/* ==================== */
 
 footer{
 
-    padding:50px;
+    padding:60px;
 
     text-align:center;
 
@@ -423,79 +506,66 @@ footer{
 }
 
 
-/* ===================== */
+
+/* ==================== */
 /* RESPONSIVO */
-/* ===================== */
-
-@media(max-width:900px){
-
-.masonry{
-
-column-count:2;
-
-}
-
-}
+/* ==================== */
 
 @media(max-width:768px){
 
 .hero h1{
 
-font-size:2.5rem;
+font-size:3rem;
 
 }
 
 .hero p{
 
-font-size:1rem;
+font-size:1.1rem;
 
 }
 
-.contador h2{
+#dias{
 
-font-size:1.8rem;
-
-}
-
-.box{
-
-width:120px;
-
-padding:20px;
+font-size:5rem;
 
 }
 
-.box span{
+.tempo{
+
+font-size:1.3rem;
+
+}
+
+.timeline h2,
+
+.album h2,
+
+.carta-section h2{
 
 font-size:2rem;
 
 }
 
-.love-card{
+.linha::before{
 
-padding:35px;
-
-}
-
-.letter-box{
-
-padding:35px;
+display:none;
 
 }
 
-}
+.momento{
 
-@media(max-width:600px){
+width:100%;
 
-.masonry{
-
-column-count:1;
+margin:auto auto 30px auto;
 
 }
 
-.gallery h2{
+.envelope{
 
-font-size:1.8rem;
+width:260px;
+
+height:180px;
 
 }
 
