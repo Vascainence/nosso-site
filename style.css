@@ -1,38 +1,43 @@
-```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
 
-font-family:'Poppins',sans-serif;
+  font-family:'Poppins',sans-serif;
 
-background:linear-gradient(
-135deg,
-#14001f,
-#2a044a,
-#5f189f
-);
+  background:linear-gradient(
+    135deg,
+    #14001f,
+    #2a044a,
+    #5f189f
+  );
 
-background-size:400% 400%;
+  background-size:400% 400%;
 
-animation:gradient 15s ease infinite;
+  animation:gradient 15s ease infinite;
 
-color:white;
+  color:white;
 
-min-height:100vh;
+  min-height:100vh;
 
-overflow-x:hidden;
+  overflow-x:hidden;
 
-position:relative;
+  position:relative;
 
 }
 
+/* ====================== */
 /* FUNDO ANIMADO */
+/* ====================== */
 
 @keyframes gradient{
 
@@ -56,7 +61,7 @@ background-position:0% 50%;
 
 }
 
-/* CÉU ESTRELADO */
+/* ESTRELAS */
 
 body::before{
 
@@ -118,7 +123,7 @@ rgba(199,125,255,.35),
 
 transparent 30%),
 
-radial-gradient(circle at 80% 30%,
+radial-gradient(circle at 80% 40%,
 
 rgba(123,44,191,.35),
 
@@ -126,7 +131,7 @@ transparent 30%),
 
 radial-gradient(circle at 50% 80%,
 
-rgba(255,255,255,.12),
+rgba(255,255,255,.10),
 
 transparent 40%);
 
@@ -170,13 +175,30 @@ transform:scale(1.2);
 
 }
 
+
+/* ====================== */
 /* HERO */
+/* ====================== */
 
 .hero{
 
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 text-align:center;
 
-padding:100px 20px;
+padding:20px;
+
+}
+
+.hero-content{
+
+max-width:800px;
 
 }
 
@@ -184,21 +206,21 @@ padding:100px 20px;
 
 font-size:4rem;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
-text-shadow:0 10px 30px rgba(0,0,0,.4);
+text-shadow:
+
+0 10px 30px rgba(0,0,0,.4);
 
 }
 
 .hero p{
 
-max-width:700px;
-
-margin:auto;
-
 font-size:1.3rem;
 
 line-height:1.8;
+
+margin-bottom:40px;
 
 }
 
@@ -206,16 +228,18 @@ line-height:1.8;
 
 display:inline-block;
 
-margin-top:40px;
-
 padding:18px 35px;
 
 background:
 
 linear-gradient(
+
 45deg,
+
 #7b2cbf,
+
 #c77dff
+
 );
 
 border-radius:40px;
@@ -238,17 +262,20 @@ transition:.4s;
 
 transform:
 
-scale(1.08)
+translateY(-5px)
 
-translateY(-5px);
+scale(1.08);
 
 }
 
+
+/* ====================== */
 /* CONTADOR */
+/* ====================== */
 
 .contador{
 
-padding:80px 20px;
+padding:90px 20px;
 
 text-align:center;
 
@@ -258,7 +285,7 @@ text-align:center;
 
 font-size:2.5rem;
 
-margin-bottom:40px;
+margin-bottom:50px;
 
 }
 
@@ -270,15 +297,15 @@ justify-content:center;
 
 flex-wrap:wrap;
 
-gap:25px;
+gap:30px;
 
 }
 
 .box{
 
-width:150px;
+width:160px;
 
-padding:30px;
+padding:35px;
 
 background:
 
@@ -290,7 +317,7 @@ border-radius:25px;
 
 box-shadow:
 
-0 10px 30px rgba(0,0,0,.3);
+0 15px 35px rgba(0,0,0,.3);
 
 transition:.4s;
 
@@ -320,25 +347,28 @@ display:block;
 
 margin-top:10px;
 
+font-size:1.1rem;
+
 opacity:.9;
 
 }
 
-/* LOVE CARD */
+
+/* ====================== */
+/* TEXTO */
+/* ====================== */
 
 .love-section{
 
-padding:70px 20px;
+padding:80px 20px;
 
 }
 
 .love-card{
 
-max-width:800px;
+max-width:850px;
 
 margin:auto;
-
-text-align:center;
 
 padding:50px;
 
@@ -354,11 +384,13 @@ box-shadow:
 
 0 15px 35px rgba(0,0,0,.3);
 
+text-align:center;
+
 }
 
 .love-card h2{
 
-font-size:2.5rem;
+font-size:2.7rem;
 
 margin-bottom:25px;
 
@@ -372,7 +404,10 @@ line-height:2;
 
 }
 
+
+/* ====================== */
 /* GALERIA POLAROID */
+/* ====================== */
 
 .gallery{
 
@@ -394,9 +429,9 @@ width:100%;
 
 text-align:center;
 
-margin-bottom:50px;
-
 font-size:2.5rem;
+
+margin-bottom:50px;
 
 }
 
@@ -452,19 +487,19 @@ font-weight:600;
 
 }
 
-.card:nth-of-type(1){
+.card:nth-of-type(2){
 
 transform:rotate(-8deg);
 
 }
 
-.card:nth-of-type(2){
+.card:nth-of-type(3){
 
 transform:rotate(7deg);
 
 }
 
-.card:nth-of-type(3){
+.card:nth-of-type(4){
 
 transform:rotate(-5deg);
 
@@ -510,11 +545,14 @@ rotate(-5deg);
 
 }
 
+
+/* ====================== */
 /* CARTA */
+/* ====================== */
 
 .letter{
 
-padding:80px 20px;
+padding:100px 20px;
 
 display:flex;
 
@@ -526,15 +564,13 @@ justify-content:center;
 
 max-width:700px;
 
-padding:50px;
-
-text-align:center;
+padding:55px;
 
 background:
 
 rgba(255,255,255,.08);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(15px);
 
 border-radius:35px;
 
@@ -542,13 +578,15 @@ box-shadow:
 
 0 15px 35px rgba(0,0,0,.3);
 
+text-align:center;
+
 }
 
 .letter-box span{
 
-font-size:1.2rem;
-
 opacity:.8;
+
+font-size:1.1rem;
 
 }
 
@@ -556,7 +594,7 @@ opacity:.8;
 
 margin:20px 0;
 
-font-size:2.5rem;
+font-size:2.7rem;
 
 }
 
@@ -568,7 +606,10 @@ line-height:2;
 
 }
 
+
+/* ====================== */
 /* FOOTER */
+/* ====================== */
 
 footer{
 
@@ -580,13 +621,103 @@ opacity:.8;
 
 }
 
+
+/* ====================== */
+/* ESTRELAS CADENTES */
+/* ====================== */
+
+.shooting-star{
+
+position:fixed;
+
+top:-50px;
+
+left:-150px;
+
+width:150px;
+
+height:3px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+white,
+
+transparent
+
+);
+
+border-radius:50%;
+
+animation:shoot 8s linear infinite;
+
+opacity:.8;
+
+}
+
+.star2{
+
+animation-delay:3s;
+
+top:20%;
+
+}
+
+.star3{
+
+animation-delay:6s;
+
+top:40%;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+transform:
+
+translate(0,0)
+
+rotate(25deg);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+
+translate(1600px,800px)
+
+rotate(25deg);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ====================== */
 /* RESPONSIVO */
+/* ====================== */
 
 @media(max-width:768px){
 
 .hero h1{
 
-font-size:2.5rem;
+font-size:2.6rem;
 
 }
 
@@ -647,4 +778,3 @@ padding:35px;
 }
 
 }
-```
