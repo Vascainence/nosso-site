@@ -1,14 +1,10 @@
-// ===============================
+// ======================
 // CONTADOR ROMÂNTICO
 // Desde 03/04/2026
-// ===============================
+// ======================
 
+// Ano, mês (abril = 3), dia
 const dataNamoro = new Date(2026, 3, 3, 0, 0, 0);
-
-const diasEl = document.getElementById("dias");
-const horasEl = document.getElementById("horas");
-const minutosEl = document.getElementById("minutos");
-const segundosEl = document.getElementById("segundos");
 
 function atualizarContador() {
 
@@ -16,14 +12,13 @@ function atualizarContador() {
 
     let diferenca = agora - dataNamoro;
 
-    // Caso a data ainda não tenha chegado
-
+    // Se a data ainda não chegou
     if (diferenca < 0) {
 
-        diasEl.innerText = "0";
-        horasEl.innerText = "00";
-        minutosEl.innerText = "00";
-        segundosEl.innerText = "00";
+        document.getElementById("dias").innerText = "0";
+        document.getElementById("horas").innerText = "0";
+        document.getElementById("minutos").innerText = "0";
+        document.getElementById("segundos").innerText = "0";
 
         return;
 
@@ -45,311 +40,97 @@ function atualizarContador() {
         (diferenca / 1000) % 60
     );
 
-    diasEl.innerText = dias;
+    document.getElementById("dias").innerText = dias;
 
-    horasEl.innerText =
+    document.getElementById("horas").innerText =
         String(horas).padStart(2, "0");
 
-    minutosEl.innerText =
+    document.getElementById("minutos").innerText =
         String(minutos).padStart(2, "0");
 
-    segundosEl.innerText =
+    document.getElementById("segundos").innerText =
         String(segundos).padStart(2, "0");
 
 }
 
+// Atualiza imediatamente
 atualizarContador();
 
-setInterval(
-    atualizarContador,
-    1000
-);
+// Atualiza a cada segundo
+setInterval(atualizarContador, 1000);
 
 
 
-// ===============================
-// CÉU ESTRELADO COM CANVAS
-// ===============================
+// ======================
+// EFEITO NAS POLAROIDS
+// ======================
 
-const canvas = document.getElementById("stars");
+const cards = document.querySelectorAll(".card");
 
-const ctx = canvas.getContext("2d");
+cards.forEach(card => {
 
-let estrelas = [];
+    card.addEventListener("mouseenter", () => {
 
-function resizeCanvas() {
-
-    canvas.width = window.innerWidth;
-
-    canvas.height = window.innerHeight;
-
-}
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-resizeCanvas();
-
-function criarEstrelas() {
-
-    estrelas = [];
-
-    let quantidade;
-
-    // Menos estrelas no celular
-
-    if(window.innerWidth < 768){
-
-        quantidade = 70;
-
-    }else{
-
-        quantidade = 150;
-
-    }
-
-    for(let i=0;i<quantidade;i++){
-
-        estrelas.push({
-
-            x:
-            Math.random()
-            * canvas.width,
-
-            y:
-            Math.random()
-            * canvas.height,
-
-            raio:
-            Math.random()*2,
-
-            alpha:
-            Math.random(),
-
-            velocidade:
-            Math.random()*0.01
-
-        });
-
-    }
-
-}
-
-criarEstrelas();
-
-window.addEventListener(
-    "resize",
-    criarEstrelas
-);
-
-
-
-function animarEstrelas(){
-
-    ctx.clearRect(
-
-        0,
-
-        0,
-
-        canvas.width,
-
-        canvas.height
-
-    );
-
-    estrelas.forEach(estrela=>{
-
-        estrela.alpha += estrela.velocidade;
-
-        if(
-
-            estrela.alpha >= 1 ||
-
-            estrela.alpha <= 0.2
-
-        ){
-
-            estrela.velocidade *= -1;
-
-        }
-
-        ctx.beginPath();
-
-        ctx.arc(
-
-            estrela.x,
-
-            estrela.y,
-
-            estrela.raio,
-
-            0,
-
-            Math.PI*2
-
-        );
-
-        ctx.fillStyle =
-
-        `rgba(
-
-        255,
-
-        255,
-
-        255,
-
-        ${estrela.alpha}
-
-        )`;
-
-        ctx.fill();
+        card.style.boxShadow =
+            "0 25px 50px rgba(0,0,0,.45)";
 
     });
 
-    requestAnimationFrame(
+    card.addEventListener("mouseleave", () => {
 
-        animarEstrelas
+        card.style.boxShadow =
+            "0 15px 35px rgba(0,0,0,.35)";
 
-    );
-
-}
-
-animarEstrelas();
-
-
-
-
-// ===============================
-// ENVELOPE ABRINDO
-// ===============================
-
-const envelope =
-
-document.getElementById("envelope");
-
-if(envelope){
-
-    envelope.addEventListener(
-
-        "click",
-
-        ()=>{
-
-            envelope.classList.toggle(
-
-                "aberto"
-
-            );
-
-        }
-
-    );
-
-}
-
-
-
-
-// ===============================
-// ANIMAÇÃO NAS FOTOS
-// ===============================
-
-const fotos =
-
-document.querySelectorAll(".foto");
-
-fotos.forEach(foto=>{
-
-    foto.addEventListener(
-
-        "mouseenter",
-
-        ()=>{
-
-            foto.style.transform =
-
-            "translateY(-10px) scale(1.03)";
-
-        }
-
-    );
-
-    foto.addEventListener(
-
-        "mouseleave",
-
-        ()=>{
-
-            foto.style.transform =
-
-            "translateY(0) scale(1)";
-
-        }
-
-    );
+    });
 
 });
 
 
 
+// ======================
+// BRILHO NO BOTÃO
+// ======================
 
-// ===============================
-// ANIMAÇÃO DO HERO
-// ===============================
+const btn = document.querySelector(".btn");
 
-const titulo =
+if(btn){
 
-document.querySelector(".hero h1");
+    setInterval(() => {
 
-if(titulo){
-
-    setInterval(()=>{
-
-        titulo.animate([
+        btn.animate([
 
             {
-
                 transform:"scale(1)"
-
             },
 
             {
-
-                transform:"scale(1.03)"
-
+                transform:"scale(1.04)"
             },
 
             {
-
                 transform:"scale(1)"
-
             }
 
         ],{
 
-            duration:2500
+            duration:1500
 
         });
 
-    },3500);
+    },2500);
 
 }
 
 
 
-
-// ===============================
-// MENSAGEM NO CONSOLE
-// ===============================
+// ======================
+// MENSAGEM NO CONSOLE 💜
+// ======================
 
 console.log(
 
 "%c💜 Site criado com amor por Bruno 💜",
 
-"font-size:22px;color:#c77dff;font-weight:bold;"
+"font-size:20px;color:#c77dff;font-weight:bold;"
 
 );
