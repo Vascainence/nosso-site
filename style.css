@@ -1,516 +1,431 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
 
-background:
+    font-family:'Poppins',sans-serif;
 
-linear-gradient(
-135deg,
-#14001f,
-#2a044a,
-#5f189f
-);
+    background:
 
-color:white;
+    linear-gradient(
+    135deg,
+    #14001f,
+    #2a044a,
+    #5f189f
+    );
 
-min-height:100vh;
+    color:white;
 
-overflow-x:hidden;
+    min-height:100vh;
 
-position:relative;
+    overflow-x:hidden;
 
-}
-
-/* ====================== */
-/* FUNDO ANIMADO */
-/* ====================== */
-
-@keyframes gradient{
-
-0%{
-
-background-position:0% 50%;
+    position:relative;
 
 }
 
-50%{
 
-background-position:100% 50%;
+/* ===================== */
+/* CÉU ESTRELADO */
+/* ===================== */
 
-}
+#stars{
 
-100%{
+    position:fixed;
 
-background-position:0% 50%;
+    top:0;
 
-}
+    left:0;
 
-}
+    width:100%;
 
-/* ESTRELAS */
+    height:100%;
 
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:
-
-radial-gradient(circle,#fff 1px,transparent 1px),
-
-radial-gradient(circle,#c77dff 2px,transparent 2px),
-
-radial-gradient(circle,#ffffff88 1px,transparent 1px);
-
-background-size:
-
-120px 120px,
-
-220px 220px,
-
-180px 180px;
-
-
-opacity:.35;
-
-z-index:-2;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:
-
-radial-gradient(circle at 20% 20%,
-
-rgba(199,125,255,.35),
-
-transparent 30%),
-
-radial-gradient(circle at 80% 40%,
-
-rgba(123,44,191,.35),
-
-transparent 30%),
-
-radial-gradient(circle at 50% 80%,
-
-rgba(255,255,255,.10),
-
-transparent 40%);
-
-filter:blur(80px);
-
-
-
-z-index:-1;
-
-}
-
-@keyframes starsMove{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-100%{
-
-transform:translateY(-200px);
-
-}
-
-}
-
-@keyframes aurora{
-
-0%{
-
-transform:scale(1);
-
-}
-
-100%{
-
-transform:scale(1.2);
-
-}
+    z-index:-1;
 
 }
 
 
-/* ====================== */
+/* ===================== */
 /* HERO */
-/* ====================== */
+/* ===================== */
 
 .hero{
 
-min-height:100vh;
+    min-height:100vh;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-text-align:center;
+    text-align:center;
 
-padding:20px;
+    padding:30px;
 
 }
 
 .hero-content{
 
-max-width:800px;
+    max-width:800px;
 
 }
 
 .hero h1{
 
-font-size:4rem;
+    font-size:4rem;
 
-margin-bottom:25px;
-
-text-shadow:
-
-0 10px 30px rgba(0,0,0,.4);
+    margin-bottom:25px;
 
 }
 
 .hero p{
 
-font-size:1.3rem;
+    font-size:1.3rem;
 
-line-height:1.8;
+    line-height:1.8;
 
-margin-bottom:40px;
+    margin-bottom:40px;
 
 }
 
 .btn{
 
-display:inline-block;
+    display:inline-block;
 
-padding:18px 35px;
+    padding:18px 35px;
 
-background:
+    background:
 
-linear-gradient(
+    linear-gradient(
 
-45deg,
+    45deg,
 
-#7b2cbf,
+    #7b2cbf,
 
-#c77dff
+    #c77dff
 
-);
+    );
 
-border-radius:40px;
+    border-radius:40px;
 
-text-decoration:none;
+    text-decoration:none;
 
-color:white;
+    color:white;
 
-font-weight:600;
+    font-weight:600;
 
-box-shadow:
-
-0 10px 30px rgba(0,0,0,.3);
-
-transition:.4s;
+    transition:.3s;
 
 }
 
 .btn:hover{
 
-transform:
+    transform:
 
-translateY(-5px)
+    scale(1.05)
 
-scale(1.08);
+    translateY(-5px);
 
 }
 
 
-/* ====================== */
+/* ===================== */
 /* CONTADOR */
-/* ====================== */
+/* ===================== */
 
 .contador{
 
-padding:90px 20px;
+    padding:90px 20px;
 
-text-align:center;
+    text-align:center;
 
 }
 
 .contador h2{
 
-font-size:2.5rem;
+    font-size:2.5rem;
 
-margin-bottom:50px;
+    margin-bottom:50px;
 
 }
 
 #timer{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-flex-wrap:wrap;
+    flex-wrap:wrap;
 
-gap:30px;
+    gap:25px;
 
 }
 
 .box{
 
-width:160px;
+    width:160px;
 
-padding:35px;
+    padding:30px;
 
-background:
+    background:
 
-rgba(255,255,255,.08);
+    rgba(255,255,255,.12);
 
-backdrop-filter:blur(12px);
+    border-radius:25px;
 
-border-radius:25px;
+    box-shadow:
 
-box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
 
-0 15px 35px rgba(0,0,0,.3);
-
-transition:.4s;
+    transition:.3s;
 
 }
 
 .box:hover{
 
-transform:
+    transform:
 
-translateY(-10px)
+    translateY(-10px)
 
-scale(1.05);
+    scale(1.05);
 
 }
 
 .box span{
 
-font-size:3rem;
+    display:block;
 
-font-weight:700;
+    font-size:3rem;
 
-display:block;
+    font-weight:700;
 
 }
 
 .box p{
 
-margin-top:10px;
+    margin-top:10px;
 
-font-size:1.1rem;
-
-opacity:.9;
+    font-size:1rem;
 
 }
 
 
-/* ====================== */
-/* TEXTO */
-/* ====================== */
+/* ===================== */
+/* LOVE CARD */
+/* ===================== */
 
 .love-section{
 
-padding:80px 20px;
+    padding:80px 20px;
 
 }
 
 .love-card{
 
-max-width:850px;
+    max-width:850px;
 
-margin:auto;
+    margin:auto;
 
-padding:50px;
+    padding:50px;
 
-background:
+    text-align:center;
 
-rgba(255,255,255,.08);
+    background:
 
-backdrop-filter:blur(12px);
+    rgba(255,255,255,.12);
 
-border-radius:35px;
+    border-radius:35px;
 
-box-shadow:
+    box-shadow:
 
-0 15px 35px rgba(0,0,0,.3);
-
-text-align:center;
+    0 15px 35px rgba(0,0,0,.25);
 
 }
 
 .love-card h2{
 
-font-size:2.7rem;
+    font-size:2.5rem;
 
-margin-bottom:25px;
+    margin-bottom:25px;
 
 }
 
 .love-card p{
 
-font-size:1.2rem;
+    font-size:1.2rem;
 
-line-height:2;
+    line-height:2;
 
 }
 
 
-/* ====================== */
+/* ===================== */
 /* GALERIA PINTEREST */
-/* ====================== */
+/* ===================== */
 
 .gallery{
 
-padding:100px 20px;
+    padding:100px 20px;
 
 }
 
 .gallery h2{
 
-text-align:center;
+    text-align:center;
 
-font-size:2.5rem;
+    font-size:2.5rem;
 
-margin-bottom:50px;
+    margin-bottom:50px;
 
 }
-
-/* COLUNAS */
 
 .masonry{
 
-column-count:3;
+    column-count:3;
 
-column-gap:25px;
+    column-gap:25px;
 
-max-width:1200px;
+    max-width:1200px;
 
-margin:auto;
+    margin:auto;
 
 }
-
-/* CARD */
 
 .pin{
 
-break-inside:avoid;
+    break-inside:avoid;
 
-margin-bottom:25px;
+    margin-bottom:25px;
 
-background:
+    background:
 
-rgba(255,255,255,.08);
+    rgba(255,255,255,.12);
 
-backdrop-filter:blur(12px);
+    border-radius:25px;
 
-border-radius:25px;
+    overflow:hidden;
 
-overflow:hidden;
+    box-shadow:
 
-box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
 
-0 15px 35px rgba(0,0,0,.3);
-
-transition:.4s;
-
-cursor:pointer;
+    transition:.3s;
 
 }
-
-/* FOTO */
 
 .pin img{
 
-width:100%;
+    width:100%;
 
-display:block;
-
-transition:.4s;
+    display:block;
 
 }
-
-/* LEGENDA */
 
 .pin p{
 
-padding:18px;
+    padding:18px;
 
-text-align:center;
+    text-align:center;
 
-font-weight:600;
-
-color:white;
+    font-weight:600;
 
 }
-
-/* HOVER */
 
 .pin:hover{
 
-transform:
+    transform:
 
-translateY(-10px)
+    translateY(-10px)
 
-scale(1.03);
-
-box-shadow:
-
-0 25px 50px rgba(0,0,0,.45);
+    scale(1.02);
 
 }
 
-.pin:hover img{
 
-transform:scale(1.05);
+/* ===================== */
+/* CARTA */
+/* ===================== */
+
+.letter{
+
+    padding:100px 20px;
 
 }
 
+.letter-box{
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:55px;
+
+    background:
+
+    rgba(255,255,255,.12);
+
+    border-radius:35px;
+
+    text-align:center;
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.letter-box span{
+
+    opacity:.8;
+
+}
+
+.letter-box h2{
+
+    font-size:2.5rem;
+
+    margin:20px 0;
+
+}
+
+.letter-box p{
+
+    font-size:1.2rem;
+
+    line-height:2;
+
+}
+
+
+/* ===================== */
+/* FOOTER */
+/* ===================== */
+
+footer{
+
+    padding:50px;
+
+    text-align:center;
+
+    opacity:.8;
+
+}
+
+
+/* ===================== */
 /* RESPONSIVO */
+/* ===================== */
 
 @media(max-width:900px){
 
@@ -522,194 +437,11 @@ column-count:2;
 
 }
 
-@media(max-width:600px){
-
-.masonry{
-
-column-count:1;
-
-}
-
-.gallery h2{
-
-font-size:1.8rem;
-
-}
-
-}
-
-/* ====================== */
-/* CARTA */
-/* ====================== */
-
-.letter{
-
-padding:100px 20px;
-
-display:flex;
-
-justify-content:center;
-
-}
-
-.letter-box{
-
-max-width:700px;
-
-padding:55px;
-
-background:
-
-rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
-
-border-radius:35px;
-
-box-shadow:
-
-0 15px 35px rgba(0,0,0,.3);
-
-text-align:center;
-
-}
-
-.letter-box span{
-
-opacity:.8;
-
-font-size:1.1rem;
-
-}
-
-.letter-box h2{
-
-margin:20px 0;
-
-font-size:2.7rem;
-
-}
-
-.letter-box p{
-
-font-size:1.2rem;
-
-line-height:2;
-
-}
-
-
-/* ====================== */
-/* FOOTER */
-/* ====================== */
-
-footer{
-
-padding:50px;
-
-text-align:center;
-
-opacity:.8;
-
-}
-
-
-/* ====================== */
-/* ESTRELAS CADENTES */
-/* ====================== */
-
-.shooting-star{
-
-position:fixed;
-
-top:-50px;
-
-left:-150px;
-
-width:150px;
-
-height:3px;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-white,
-
-transparent
-
-);
-
-border-radius:50%;
-
-animation:shoot 8s linear infinite;
-
-opacity:.8;
-
-}
-
-.star2{
-
-animation-delay:3s;
-
-top:20%;
-
-}
-
-.star3{
-
-animation-delay:6s;
-
-top:40%;
-
-}
-
-@keyframes shoot{
-
-0%{
-
-transform:
-
-translate(0,0)
-
-rotate(25deg);
-
-opacity:0;
-
-}
-
-10%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:
-
-translate(1600px,800px)
-
-rotate(25deg);
-
-opacity:0;
-
-}
-
-}
-
-
-/* ====================== */
-/* RESPONSIVO */
-/* ====================== */
-
 @media(max-width:768px){
 
 .hero h1{
 
-font-size:2.6rem;
+font-size:2.5rem;
 
 }
 
@@ -739,24 +471,6 @@ font-size:2rem;
 
 }
 
-.gallery{
-
-gap:35px;
-
-}
-
-.card{
-
-width:220px;
-
-}
-
-.card img{
-
-height:280px;
-
-}
-
 .love-card{
 
 padding:35px;
@@ -770,31 +484,19 @@ padding:35px;
 }
 
 }
-@media (max-width:768px){
 
-  .box,
-  .love-card,
-  .pin,
-  .letter-box{
+@media(max-width:600px){
 
-    backdrop-filter:none !important;
-    -webkit-backdrop-filter:none !important;
+.masonry{
 
-    background:rgba(255,255,255,.12);
+column-count:1;
 
-  }
+}
 
-  body::before,
-  body::after{
+.gallery h2{
 
-    display:none;
+font-size:1.8rem;
 
-  }
-
-  .shooting-star{
-
-    display:none;
-
-  }
+}
 
 }
