@@ -12,26 +12,24 @@ html{
 
 body{
 
-  font-family:'Poppins',sans-serif;
+    font-family:'Poppins',sans-serif;
 
-  background:linear-gradient(
+    background:
+
+    linear-gradient(
     135deg,
     #14001f,
     #2a044a,
     #5f189f
-  );
+    );
 
-  background-size:400% 400%;
+    color:white;
 
-  animation:gradient 15s ease infinite;
+    min-height:100vh;
 
-  color:white;
+    overflow-x:hidden;
 
-  min-height:100vh;
-
-  overflow-x:hidden;
-
-  position:relative;
+}
 
 }
 
